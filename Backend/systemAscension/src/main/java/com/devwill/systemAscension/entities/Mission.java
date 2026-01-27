@@ -1,12 +1,16 @@
 package com.devwill.systemAscension.entities;
 
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "tb_mission")
 public class Mission {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
