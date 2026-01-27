@@ -15,10 +15,6 @@ public class Friendship {
     @JoinColumn(name="user_id")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name="friend_id")
-    private User friend;
-
     @Enumerated(EnumType.ORDINAL)
     private FriendshipStatus status;
 
@@ -28,10 +24,9 @@ public class Friendship {
 
     }
 
-    public Friendship(Long id, User user, User friend, FriendshipStatus status, Instant createdAt) {
+    public Friendship(Long id, User user, FriendshipStatus status, Instant createdAt) {
         this.id = id;
         this.user = user;
-        this.friend = friend;
         this.status = status;
         this.createdAt = createdAt;
     }
