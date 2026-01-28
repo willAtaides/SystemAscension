@@ -32,7 +32,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<UserMission> missions = new HashSet<>();
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserClass currentClass;
 
     public User(){

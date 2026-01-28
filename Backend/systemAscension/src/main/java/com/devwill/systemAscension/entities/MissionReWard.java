@@ -12,7 +12,7 @@ public class MissionReWard {
 
     @Enumerated(EnumType.ORDINAL)
     private MissionReWardType reWardType;
-    
+
     @ManyToOne
     @JoinColumn(name="mission_id")
     private Mission mission;
