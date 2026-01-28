@@ -1,8 +1,12 @@
 package com.devwill.systemAscension.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="tb_user_attribute")
 public class UserAttribute {
 
     private Integer level;
@@ -15,7 +19,7 @@ public class UserAttribute {
     @ManyToOne
     @JoinColumn(name = "attribute_id")
     private Attribute attribute;
-    
+
     public UserAttribute(){}
 
     public UserAttribute(Integer level, Integer currentXP, User user, Attribute attribute) {
@@ -49,11 +53,11 @@ public class UserAttribute {
         this.user = user;
     }
 
-    public Attribute getAttibute() {
+    public Attribute getAttribute() {
         return attribute;
     }
 
-    public void setAttibute(Attribute attribute) {
+    public void setAttribute(Attribute attribute) {
         this.attribute = attribute;
     }
 
