@@ -1,25 +1,28 @@
 package com.devwill.systemAscension.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_attribute")
 public class Attribute {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
     @OneToMany(mappedBy = "attribute")
-    private UserAttribute users;
+    private Set<UserAttribute> users = new HashSet<>();
 
-    @OneToMany(mappedBy = "attributes")
-    private ClassRequeriment requirements;
+    @OneToMany(mappedBy = "attribute")
+    private Set<ClassRequeriment> requirements = new HashSet<>();
 
     public Attribute() {}
 
-    public Attribute(Long id, String name, UserAttribute users, ClassRequeriment requirements) {
+    public Attribute(Long id, String name, Set<UserAttribute> users, Set<ClassRequeriment> requirements) {
         this.id = id;
         this.name = name;
         this.users = users;
@@ -38,19 +41,19 @@ public class Attribute {
         this.name = name;
     }
 
-    public UserAttribute getUsers() {
+    public Set<UserAttribute> getUsers() {
         return users;
     }
 
-    public void setUsers(UserAttribute users) {
+    public void setUsers(Set<UserAttribute> users) {
         this.users = users;
     }
 
-    public ClassRequeriment getRequirements() {
+    public Set<ClassRequeriment> getRequirements() {
         return requirements;
     }
 
-    public void setRequirements(ClassRequeriment requirements) {
+    public void setRequirements(Set<ClassRequeriment> requirements) {
         this.requirements = requirements;
     }
 

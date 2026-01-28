@@ -6,6 +6,10 @@ import java.time.Instant;
 @Entity
 @Table(name="tb_user_class")
 public class UserClass {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant acquiredAt;
 

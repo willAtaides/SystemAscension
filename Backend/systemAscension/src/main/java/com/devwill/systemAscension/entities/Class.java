@@ -2,6 +2,9 @@ package com.devwill.systemAscension.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_class")
 public class Class {
@@ -16,12 +19,12 @@ public class Class {
     private UserClass users;
 
     @OneToMany(mappedBy = "class")
-    private ClassRequeriment requirements;
+    private Set<ClassRequeriment> requirements = new HashSet<>();
 
     public Class(){
     }
 
-    public Class(Long id, String name, Integer minLevel, UserClass users, ClassRequeriment requirements) {
+    public Class(Long id, String name, Integer minLevel, UserClass users, Set<ClassRequeriment> requirements) {
         this.id = id;
         this.name = name;
         this.minLevel = minLevel;
@@ -61,11 +64,11 @@ public class Class {
         this.users = users;
     }
 
-    public ClassRequeriment getRequirements() {
+    public Set<ClassRequeriment> getRequirements() {
         return requirements;
     }
 
-    public void setRequirements(ClassRequeriment requirements) {
+    public void setRequirements(Set<ClassRequeriment> requirements) {
         this.requirements = requirements;
     }
 

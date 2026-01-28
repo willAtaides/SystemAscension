@@ -41,10 +41,6 @@ public class Friendship {
     }
 
 
-    public User getFriend() {
-        return friend;
-    }
-
     public FriendshipStatus getStatus() {
         return status;
     }

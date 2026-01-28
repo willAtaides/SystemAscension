@@ -1,13 +1,13 @@
 package com.devwill.systemAscension.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="tb_user_attribute")
 public class UserAttribute {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private Integer level;
     private Integer currentXP;
